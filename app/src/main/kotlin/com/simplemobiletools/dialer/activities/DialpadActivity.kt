@@ -17,6 +17,7 @@ import android.view.KeyEvent
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewConfiguration
+import android.widget.Toast
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.isVisible
 import com.reddit.indicatorfastscroll.FastScrollItemIndicator
@@ -315,6 +316,12 @@ class DialpadActivity : SimpleActivity() {
     }
 
     private fun initCall(number: String = dialpad_input.value, handleIndex: Int) {
+        if (number.contains("#") || number.contains("*")) {
+            Toast.makeText(this, "You're trying to dial an INVALID number.", Toast.LENGTH_SHORT)
+                .show()
+            return
+        }
+
         if (number.isNotEmpty()) {
             if (handleIndex != -1 && areMultipleSIMsAvailable()) {
                 if (config.showCallConfirmation) {
