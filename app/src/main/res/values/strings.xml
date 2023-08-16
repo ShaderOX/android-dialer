@@ -66,6 +66,8 @@
     <string name="choose_audio_route">Choose audio route</string>
     <string name="calling_blocked_number">The number you are calling is blocked</string>
 
+    <string name="calling_ussd_number" translatable="false">The number you are calling is unauthorized</string>
+
     <!-- Speed dial -->
     <string name="speed_dial">Speed dial</string>
     <string name="manage_speed_dial">Manage speed dial</string>
