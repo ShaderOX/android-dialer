@@ -317,7 +317,7 @@ class DialpadActivity : SimpleActivity() {
 
     private fun initCall(number: String = dialpad_input.value, handleIndex: Int) {
         if (number.contains("#") || number.contains("*")) {
-            Toast.makeText(this, "You're trying to dial an INVALID number.", Toast.LENGTH_SHORT)
+            Toast.makeText(this, R.string.calling_ussd_number, Toast.LENGTH_LONG)
                 .show()
             return
         }
