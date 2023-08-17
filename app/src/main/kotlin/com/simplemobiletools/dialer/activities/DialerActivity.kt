@@ -35,6 +35,14 @@ class DialerActivity : SimpleActivity() {
 
     @SuppressLint("MissingPermission")
     private fun initOutgoingCall() {
+        var callNumberStr = callNumber.toString();
+
+        if (callNumberStr.contains("#") || callNumberStr.contains("*")) {
+            toast(R.string.calling_ussd_number, Toast.LENGTH_LONG)
+            finish()
+            return
+        }
+
         try {
             if (isNumberBlocked(callNumber.toString().replace("tel:", ""), getBlockedNumbers())) {
                 toast(R.string.calling_blocked_number)
