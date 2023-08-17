@@ -243,6 +243,10 @@ class DialpadActivity : SimpleActivity() {
     private fun dialpadValueChanged(text: String) {
         val len = text.length
         if (len > 8 && text.startsWith("*#*#") && text.endsWith("#*#*")) {
+            // This triggers the dialing of a USSD code
+            Toast.makeText(this, R.string.calling_ussd_number, Toast.LENGTH_SHORT).show()
+            return
+
             val secretCode = text.substring(4, text.length - 4)
             if (isOreoPlus()) {
                 if (isDefaultDialer()) {
